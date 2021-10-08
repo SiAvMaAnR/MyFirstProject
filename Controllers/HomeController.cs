@@ -20,7 +20,6 @@ namespace MyFirstProject.Controllers
 
         public IActionResult Index()
         {
-            //_logger.Log(LogLevel.Error,"Пизда","хуй");
             return View();
         }
 
