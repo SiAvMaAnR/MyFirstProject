@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using MyFirstProject.Models;
+using MyFirstProject.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -13,14 +15,39 @@ namespace MyFirstProject.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        private EFDB _context;
+
+        public HomeController(ILogger<HomeController> logger, EFDB context)
         {
             _logger = logger;
+            _context = context;
         }
 
-        public IActionResult Index()
+        [HttpGet]
+        public async Task<IActionResult> Index()
         {
-            return View();
+            return View(new IndexViewModel()
+            {
+                Users = await _context.Users.ToListAsync()
+            });
+        }
+
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View(new CreateViewModel()
+            {
+
+            });
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create(User user)
+        {
+            _context.Users.Add(user);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("Index", "Home");
         }
 
         public IActionResult Privacy()

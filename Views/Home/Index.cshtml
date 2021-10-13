@@ -1,8 +1,15 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model IndexViewModel
+@{
+    ViewData["Title"] = "Все пользователи";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div>
+    <a asp-action="Create">Добавить пользователя</a>
+    <table class="table">
+        <tr><td>Имя</td><td>Возраст</td></tr>
+        @foreach (var item in Model.Users)
+        {
+            <tr><td>@item.Name</td><td>@item.Age</td></tr>
+        }
+    </table>
 </div>

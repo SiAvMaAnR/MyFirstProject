@@ -1,0 +1,19 @@
+﻿@model CreateViewModel
+@{
+    ViewData["Title"] = "Добавить пользователя";
+}
+<div>
+    <form asp-action="Create" asp-controller="Home">
+        <div class="form-group">
+            <label asp-for=@Model.User.Name class="control-label">Имя</label>
+            <input type="text" asp-for=@Model.User.Name class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for=@Model.User.Age class="control-label">Возраст</label>
+            <input type="number" asp-for=@Model.User.Age class="form-control" />
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Отправить" class="btn btn-default" />
+        </div>
+    </form>
+</div>
