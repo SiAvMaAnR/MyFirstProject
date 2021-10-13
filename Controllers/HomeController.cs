@@ -35,24 +35,18 @@ namespace MyFirstProject.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            return View(new CreateViewModel()
-            {
-
-            });
+            return View();
         }
 
         [HttpPost]
         public async Task<IActionResult> Create(User user)
         {
-            _context.Users.Add(user);
-            await _context.SaveChangesAsync();
-
+            if (ModelState.IsValid)
+            {
+                _context.Users.Add(user);
+                await _context.SaveChangesAsync();
+            }
             return RedirectToAction("Index", "Home");
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
