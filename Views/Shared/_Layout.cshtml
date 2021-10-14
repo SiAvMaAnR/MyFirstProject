@@ -9,24 +9,35 @@
     <link rel="stylesheet" href="~/css/UsersStyle.css" />
 </head>
 <body>
-    <header>
-       <div class="tab">
-           <ul class="tab-items">
-
-           </ul>
-       </div>
+    <header class="Header">
+        <div class="tab-brand">
+            <a asp-action="Index" asp-controller="Home">TODOList</a>
+        </div>
+        <div class="tab-items">
+            <ul>
+                <li>
+                    <a class="tab-link" asp-action="Index" asp-controller="Home">Home</a>
+                </li>
+                <li>
+                    <a class="tab-link" asp-action="Index" asp-controller="Home">Privacy</a>
+                </li>
+                <li>
+                    <a class="tab-link" asp-action="Index" asp-controller="Home">Information</a>
+                </li>
+            </ul>
+        </div>
     </header>
-    <div class="container">
-        <main role="main">
-            @RenderBody()
-        </main>
-    </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2021 - MyFirstProject - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <main class="Main" role="main">
+        @RenderBody()
+    </main>
+
+    <footer class="Footer">
+        <div class="footer-text">
+            &copy; 2021 - MyFirstProject - <a asp-controller="#" asp-action="#">Privacy</a>
         </div>
     </footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
