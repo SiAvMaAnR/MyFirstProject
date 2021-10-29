@@ -2,7 +2,8 @@
 @{
     ViewData["Title"] = "Добавить пользователя";
 }
-<div>
+<div class="container">
+
     <form asp-antiforgery="true" asp-action="Create" asp-controller="Home">
         <div class="validation" asp-validation-summary="ModelOnly"></div>
         <div class="form-group">
@@ -16,7 +17,7 @@
             <span asp-validation-for=@Model.User.Age></span>
         </div>
         <div class="form-group">
-            <input type="submit" value="Отправить" class="btn btn-default" />
+            <input class="send" type="submit" value="Отправить" class="btn btn-default" />
         </div>
     </form>
 
