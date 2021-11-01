@@ -50,11 +50,10 @@ namespace MyFirstProject.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-
         [HttpPost]
         public async Task<IActionResult> AddOneTestUser()
         {
-            _context.Users.Add(new Models.User()
+            _context.Users.Add(new User()
             {
                 Name = "Test Name",
                 Age = 999
@@ -64,10 +63,16 @@ namespace MyFirstProject.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddOneTestUser()
+        public async Task<IActionResult> DelAllTestUser()
         {
-                var name = new SqlParameter("@CategoryName", "Test");
-                _context.Database.ExecuteSqlCommand("EXEC AddCategory @CategoryName", name);
+            foreach (var id in _context.Users.Select(e => e.Id))
+            {
+                var user = new User { Id = id };
+                _context.Users.Attach(user);
+                _context.Users.Remove(user);
+            }
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Index", "Home");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

@@ -1,7 +1,7 @@
-let form = $('.add_test_form'),
-    submitLink = form.children('.add_submit_link');
+let Addform = $(".add_test_form"),
+  AddLink = Addform.children(".add_submit_link");
 
-submitLink.click(function(e) {
-    e.preventDefault();
-    form.submit();
+AddLink.click(function (e) {
+  e.preventDefault();
+  Addform.submit();
 });

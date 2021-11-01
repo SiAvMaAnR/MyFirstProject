@@ -18,41 +18,44 @@
 
 <body>
     <div class="wrapper">
-        <div class="title-header">
-            <p>SiAvMaAnR</p>
+
+        <div class="without-footer">
+            <div class="title-header">
+                <p>SiAvMaAnR</p>
+            </div>
+
+            <header>
+                <div class="tab-brand">
+                    <a asp-action="Index" asp-controller="Home">TODOList</a>
+                </div>
+                <div class="tab-items">
+                    <ul>
+                        <li>
+                            <a class="tab-link" asp-action="Create" asp-controller="Home">Addition</a>
+                        </li>
+                        <li>
+                            <a class="tab-link" asp-action="Index" asp-controller="Home">Editing</a>
+                        </li>
+                        <li>
+                            <form class="add_test_form" asp-action="AddOneTestUser" asp-controller="Home" method="post">
+                                <a class="add_submit_link tab-link" asp-action="Index"
+                                   asp-controller="Home">AddOneUser</a>
+                            </form>
+                        </li>
+                        <li>
+                            <form class="del_test_form" asp-action="DelAllTestUser" asp-controller="Home" method="post">
+                                <a class="del_submit_link tab-link" asp-action="Index"
+                                   asp-controller="Home">DelAllUser</a>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            </header>
+
+            <main role="main">
+                @RenderBody()
+            </main>
         </div>
-
-        <header>
-            <div class="tab-brand">
-                <a asp-action="Index" asp-controller="Home">TODOList</a>
-            </div>
-            <div class="tab-items">
-                <ul>
-                    <li>
-                        <a class="tab-link" asp-action="Create" asp-controller="Home">Addition</a>
-                    </li>
-                    <li>
-                        <a class="tab-link" asp-action="Index" asp-controller="Home">Editing</a>
-                    </li>
-                    <li>
-                        <form class="add_test_form" asp-action="AddOneTestUser" asp-controller="Home" method="post">
-                            <a class="add_submit_link tab-link" asp-action="AddOneTestUser"
-                                asp-controller="Home">AddOneUser</a>
-                        </form>
-                    </li>
-                    <li>
-                        <form class="del_test_form" asp-action="DelAllTestUser" asp-controller="Home" method="post">
-                            <a class="del_submit_link tab-link" asp-action="DelAllTestUser"
-                                asp-controller="Home">DelAllUser</a>
-                        </form>
-                    </li>
-                </ul>
-            </div>
-        </header>
-
-        <main role="main">
-            @RenderBody()
-        </main>
 
         <footer>
             <div class="footer-text">
@@ -63,8 +66,8 @@
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/AddUser.js" asp-append-version="true"></script>
-    <script src="~/js/DelUser.js" asp-append-version="true"></script>
+    <script src="~/js/AddUser.js"></script>
+    <script src="~/js/DelUser.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
