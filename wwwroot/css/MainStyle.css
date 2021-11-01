@@ -1,76 +1,116 @@
 ﻿body {
-    margin: 0;
+  margin: 0;
+  min-height: 100%;
+  position: relative;
 }
 
-.Header {
-    margin: 10px 9% 60px 9%;
-    background: rgba(34,33, 33, 0.99);
-    border-radius: 10px;
-    position: sticky;
-    padding: 0px 30px;
-    top: 0;
-    display: flex;
+::-webkit-scrollbar {
+  display: none;
 }
 
-.Main {
-    margin: 0 10% 0 10%;
-    text-align: justify;
+.title-header {
+  justify-content: center;
+  display: flex;
+  margin: 30px 0;
+  font-size: 36px;
+  font-family: "Montserrat", sans-serif;
 }
 
-.Footer {
-    margin: 10px 10%;
-    padding: 10px 0 10px 0;
-    border-top: 1px solid #808080;
+.title-header p {
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper {
+  flex: 1 1 auto;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+}
+
+.without-footer{
+  min-height: 100%;
+}
+
+header {
+  margin: 10px 9% 20px 9%;
+  background: rgb(109, 78, 180);
+  border-radius: 10px;
+  position: sticky;
+  padding: 0px 30px;
+  top: 0;
+  display: flex;
+}
+
+main {
+  margin: 0 10% 0 10%;
+  text-align: justify;
+  flex: 1 1 auto;
+  display: block; 
+}
+
+footer {
+  justify-content: center;
+  display: flex;
+  height: 30px;
+  margin: 10px 10%;
+  padding: 10px 0 10px 0;
+  border-top: 1px solid #808080;
+}
+
+.wrapper header,
+.wrapper footer {
+  flex: 0 0 50px;
 }
 
 .footer-text {
-    text-align: center;
+  text-align: center;
 }
 
 .tab-brand {
-    display: flex;
-    align-items: center
+  display: flex;
+  align-items: center;
 }
 
-    .tab-brand a {
-        margin: 0;
-        font-size: 26px;
-        text-decoration: none;
-        color: white;
-    }
+.tab-brand a {
+  margin: 0;
+  font-size: 26px;
+  text-decoration: none;
+  color: #ffffff;
+}
 
-        .tab-brand a:hover {
-
-        }
+.tab-brand a:hover {
+}
 
 .tab-items {
-    margin: 0 10px 0 auto;
-    display: inline-block;
-    list-style-type: none;
+  margin: 0 10px 0 auto;
+  display: inline-block;
+  list-style-type: none;
 }
 
-    .tab-items ul {
-        margin: 0;
-        padding: 0;
-    }
+.tab-items ul {
+  margin: 0;
+  padding: 0;
+}
 
-        .tab-items ul li {
-            text-decoration: none;
-            display: inline-block;
-        }
+.tab-items ul li {
+  text-decoration: none;
+  display: inline-block;
+}
 
 .tab-link {
-    font-family: sans-serif;
-    display: block;
-    font-size: 20px;
-    color: #ded8d8;
-    background-color: transparent;
-    padding: 10px 20px;
-    margin: 0 20px;
+  font-family: sans-serif;
+  display: block;
+  font-size: 20px;
+  color: #ded8d8;
+  background-color: transparent;
+  padding: 10px 20px;
+  margin: 0 20px;
 }
 
-    .tab-link:hover {
-        text-decoration: none;
-        color: white;
-        background-color: black;
-    }
+.tab-link:hover {
+  text-decoration: none;
+  color: white;
+  border-radius: 5px;
+  background-color: rgb(122, 93, 192);
+}

@@ -10,10 +10,10 @@ namespace MyFirstProject.Models
     {
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "Некорректное имя")]
+        [Required(ErrorMessage = "*Incorrect name")]
         public string Name { get; set; }
 
-        [Required(ErrorMessage = "Некорректный возраст")]
+        [Required(ErrorMessage = "*Incorrect age")]
         public uint Age { get; set; }
     }
 }

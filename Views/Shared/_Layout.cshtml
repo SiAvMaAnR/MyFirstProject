@@ -1,48 +1,72 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - MyFirstProject</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
-    <link rel="stylesheet" href="~/css/MainStyle.css" />
-    <link rel="stylesheet" href="~/css/Index.css" />
-    <link rel="stylesheet" href="~/css/Create.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/site.css">
+    <link rel="stylesheet" href="~/css/MainStyle.css">
+    <link rel="stylesheet" href="~/css/Index.css">
+    <link rel="stylesheet" href="~/css/Create.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap">
 </head>
+
 <body>
-    <header class="Header">
-        <div class="tab-brand">
-            <a asp-action="Index" asp-controller="Home">TODOList</a>
+    <div class="wrapper">
+        <div class="title-header">
+            <p>SiAvMaAnR</p>
         </div>
-        <div class="tab-items">
-            <ul>
-                <li>
-                    <a class="tab-link" asp-action="Index" asp-controller="Home">Home</a>
-                </li>
-                <li>
-                    <a class="tab-link" asp-action="Index" asp-controller="Home">Privacy</a>
-                </li>
-                <li>
-                    <a class="tab-link" asp-action="Index" asp-controller="Home">Information</a>
-                </li>
-            </ul>
-        </div>
-    </header>
 
-    <main class="Main" role="main">
-        @RenderBody()
-    </main>
+        <header>
+            <div class="tab-brand">
+                <a asp-action="Index" asp-controller="Home">TODOList</a>
+            </div>
+            <div class="tab-items">
+                <ul>
+                    <li>
+                        <a class="tab-link" asp-action="Create" asp-controller="Home">Addition</a>
+                    </li>
+                    <li>
+                        <a class="tab-link" asp-action="Index" asp-controller="Home">Editing</a>
+                    </li>
+                    <li>
+                        <form class="add_test_form" asp-action="AddOneTestUser" asp-controller="Home" method="post">
+                            <a class="add_submit_link tab-link" asp-action="AddOneTestUser"
+                                asp-controller="Home">AddOneUser</a>
+                        </form>
+                    </li>
+                    <li>
+                        <form class="del_test_form" asp-action="DelAllTestUser" asp-controller="Home" method="post">
+                            <a class="del_submit_link tab-link" asp-action="DelAllTestUser"
+                                asp-controller="Home">DelAllUser</a>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </header>
 
-    <footer class="Footer">
-        <div class="footer-text">
-            &copy; 2021 - MyFirstProject - <a asp-controller="#" asp-action="#">Privacy</a>
-        </div>
-    </footer>
+        <main role="main">
+            @RenderBody()
+        </main>
+
+        <footer>
+            <div class="footer-text">
+                &copy; 2021 - MyFirstProject - <a asp-controller="#" asp-action="#">Privacy</a>
+            </div>
+        </footer>
+    </div>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/AddUser.js" asp-append-version="true"></script>
+    <script src="~/js/DelUser.js" asp-append-version="true"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
+
 </html>

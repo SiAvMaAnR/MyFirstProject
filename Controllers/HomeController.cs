@@ -5,6 +5,7 @@ using MyFirstProject.Models;
 using MyFirstProject.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
@@ -47,6 +48,26 @@ namespace MyFirstProject.Controllers
                 await _context.SaveChangesAsync();
             }
             return RedirectToAction("Index", "Home");
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> AddOneTestUser()
+        {
+            _context.Users.Add(new Models.User()
+            {
+                Name = "Test Name",
+                Age = 999
+            });
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Index", "Home");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddOneTestUser()
+        {
+                var name = new SqlParameter("@CategoryName", "Test");
+                _context.Database.ExecuteSqlCommand("EXEC AddCategory @CategoryName", name);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
