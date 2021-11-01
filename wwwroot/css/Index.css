@@ -1,5 +1,4 @@
-﻿
-table {
+﻿table {
   font-family: "Lato", sans-serif;
   font-size: 14px;
   border-collapse: separate;
@@ -34,4 +33,28 @@ th {
 td:first-child {
   width: 10px;
   margin: 0px 10px 20px 0px;
+}
+
+.no-data {
+  display: flex;
+  justify-content: center;
+  height: 300px;
+}
+
+.no-data p {
+  align-self: center;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  padding: 10px;
+  margin: 0;
+  background: rgb(113, 86, 177);
+  color: white;
+  border-radius: 14px;
+  padding: 10px 30px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.no-data p:hover {
+  transform: scale(1.1);
 }
